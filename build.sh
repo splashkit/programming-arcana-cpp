@@ -20,3 +20,5 @@ pandoc \
   -T "Programming Arcana" \
   Text.en/*.md \
   -o bin/ProgrammingArcana.epub
+
+open bin/ProgrammingArcana.html
