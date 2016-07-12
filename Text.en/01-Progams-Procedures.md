@@ -96,18 +96,69 @@ sudo apt-get install clang
 
 Installing clang on MacOS requires you to run the following command in the Terminal:
 
+[comment]: <> (TODO: Remove the space between -- and install)
+
 ```bash
-code
+xcode-select -- install
 ```
 
 #### Installing Clang on Windows ####
 
+How you install clang will depend on the Terminal you are using. If you are using Bash in Windows 10, follow the instructions for installing clang on Linux. If you are using MSys2 then you can install clang using the following command.
+
+```bash
+pacman -Sy mingw-w64-x86_64-clang mingw-w64-i686-clang
+```
+
+### Installing Splashkit ###
+
+Now you need to install [Splashkit](splashkit.io). Splashkit is designed to help you get started with programming. It is a library of reusable code that provides tools to help you make more interesting programs. Using Splashkit you will soon be creating small games, responding to command from your own web servers, or interacting with a custom database.
+
+To install Splashkit use:
+
+[comment]: <> (TODO: Work out how this works...)
+
+```bash
+curl http://splashkit.io/...
+```
 
 ### Creating Your First Program ###
 
-### Customising Your Dev Environment ###
+Ok, now you can create your first program! Wait... before you write your first line of code you need to know that there are gods for each programming language. These gods can be vengeful 🌩if you do not make the right offering as your first program! To please the programming gods you need to create a special program as your first code: "Hello World". 😃
+
+More seriously, Hello World is a great program to start with for any new language or set of tools. This program just outputs the message "Hello World", and makes sure that you have everything setup correctly before you go on and write more complex programs.
+
+1. Open Atom -- you will use this to enter the program's code.
+2. Type in the following code. Make sure the text is the same, but do not worry if the colors are different.
+
+    ```cpp
+    #include "splashkit.h"
+    #include "splashhelper.h"
+
+    procedure main()
+    {
+      println("Hello World!");
+    }
+    ```
+3. Save your program as **HelloWorld.cpp** in your Documents folder somewhere.
+4. Switch to the terminal and compile and run your program.
+
+    ```bash
+    clang++ `splashkit -cpp-starter` HelloWorld.cpp -o HelloWorld
+    ```
+5. Run your program using:
+
+    ```bash
+    ./HelloWorld
+    ```
+
+![The Atom text editor with the code for a Hello World program.](./Figures/01-program-procedure/01-atom-hello-world.png){width=500px}
 
 
+<note>
+<header>Code Color Scheme</header>
+We are using the **Atom Dark** UI Theme and the **Monokai** Syntax Theme in Atom. You can change your themes in Atom's settings/preferences. The Monokai theme needs to be installed as a custom theme.
+</note>
 
 <!-- <video
    src="https://cfvod.kaltura.com/pd/p/691292/sp/69129200/serveFlavor/entryId/0_1whw5ogz/v/2/flavorId/0_ffjvk2cg/fileName/Programs_and_procedures_(Swinburne_CodeCasts_-_Introduction_to_Programming_in_Pascal_1.4)_-_HD.mp4/name/a.mp4"
@@ -121,8 +172,6 @@ code
 
 
 ## Understanding Code ##
-
-![The Atom text editor with the code for a Hello World program.](./Figures/01-program-procedure/01-atom-hello-world.png){width=500px}
 
 Computers are powerful, but completely unintelligent, devices.
 
