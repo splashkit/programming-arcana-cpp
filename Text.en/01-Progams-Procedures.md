@@ -199,10 +199,12 @@ Computers are powerful, but completely unintelligent, devices. Each computer is 
 ![A computer is made up of a number of components controlled by a central processing unit.](./Figures/01-program-procedure/Computer.png){#fig:figComputer width=500px}
 
 * **Processor**: Each computer has a central processing unit (CPU) that is responsible for performing actions. The CPU responds to instructions that tell it what actions to perform. Each action is very small, but the CPU can perform millions of these actions every second.
-* 
+* **Memory**: Accompanying the CPU is a component used to store data known as Random Access Memory or RAM for short. This memory can be quickly accessed by the CPU, and is used to store the instructions for the CPU and the data related to these instructions. While RAM is fast, it does not store data persistently and when the power is turned off the data in RAM is lost.
+* **Storage Devices**: To save data more permanently each computer has other storage devices that are slower to access, but are able to store data when the power is off. These devices include devices such as solid state drives, hard disks, DVDs, and USB keys. Data on these devices is usually organised into files and folders, and must be loaded into RAM to be used by the CPU.
+* **Input Devices**: In order to respond to user actions, each computer will have a number of input devices. This includes things like keyboards, mice, track pads, touch screens, game controllers, network ports, etc. Each of these devices is turning user actions into data that the CPU can access.
+* **Output Devices**: The computer also needs devices that can be used to produce outputs. These include things like displays, speakers, network ports, etc. Each of these devices tasks data from the computer and produces an output of some form.
 
-
-![The CPU is responsible for performing actions.](./Figures/01-program-procedure/03-CPU.png){width=200px #fig:figCPU}
+All of these components work together to enable the computer to perform amazing tasks, and yet none of these devices has any inherent intelligence. The CPU follows instructions to take inputs from a range of devices, store and work with data in memory, and produce outputs saved as files on a storage device or communicated with users via an output device.
 
 
 Conceptual artefacts
