@@ -79,22 +79,16 @@ If you have Linux or MacOS, locate and open your Terminal program. On Windows, e
 
 ### Installing a Compiler ###
 
-The next tool you need is a **compiler**. You will use the compiler to convert your program's source code into an executable file that the users can run. We are going to use a compiler called *clang*. How you install *clang* will depend on your operating system, so jump ahead to the instructions for [Linux](installing-clang-on-linux), [MacOS](installing-clang-on-macos), or [Windows](installing-clang-on-windows).
+The next tool you need is a **compiler**. You will use the compiler to convert your program's source code into an executable file that the users can run. We are going to use a compiler called *clang*. How you install *clang* will depend on your operating system, so jump ahead to the instructions for your operating system.
 
-#### Installing Clang on Linux ####
-
-Installing clang on Linux will depend on your distribution. Generally it should be as easy entering a few commands in the Terminal.
-
-Open the terminal and enter the following commands:
+**Linux**: Installing clang on Linux will depend on your distribution. Generally it should be as easy entering a few commands in the Terminal. Open the terminal and enter the following commands:
 
 ```bash
 sudo apt-get update
 sudo apt-get install clang
 ```
 
-#### Installing Clang on MacOS ####
-
-Installing clang on MacOS requires you to run the following command in the Terminal:
+**MacOS**: Installing clang on MacOS requires you to run the following command in the Terminal:
 
 [comment]: <> (TODO: Remove the space between -- and install)
 
@@ -102,9 +96,7 @@ Installing clang on MacOS requires you to run the following command in the Termi
 xcode-select -- install
 ```
 
-#### Installing Clang on Windows ####
-
-How you install clang will depend on the Terminal you are using. If you are using Bash in Windows 10, follow the instructions for installing clang on Linux. If you are using MSys2 then you can install clang using the following command.
+**Windows** How you install clang on Windows depends on the Terminal you are using. If you are using Bash in Windows 10, follow the instructions for installing clang on Linux. If you are using MSys2 then you can install clang using the following command:
 
 ```bash
 pacman -Sy mingw-w64-x86_64-clang mingw-w64-i686-clang
@@ -112,9 +104,9 @@ pacman -Sy mingw-w64-x86_64-clang mingw-w64-i686-clang
 
 ### Installing Splashkit ###
 
-Now you need to install [Splashkit](splashkit.io). Splashkit is designed to help you get started with programming. It is a library of reusable code that provides tools to help you make more interesting programs. Using Splashkit you will soon be creating small games, responding to command from your own web servers, or interacting with a custom database.
+[Splashkit](splashkit.io) is designed to help you get started with programming. It is a library of reusable code that provides tools to help you make more interesting programs. Using Splashkit you will soon be creating small games, responding to command from your own web servers, or interacting with a custom database.
 
-To install Splashkit use:
+To install Splashkit:
 
 [comment]: <> (TODO: Work out how this works...)
 
@@ -126,7 +118,14 @@ curl http://splashkit.io/...
 
 Ok, now you can create your first program! Wait... before you write your first line of code you need to know that there are gods for each programming language. These gods can be vengeful 🌩if you do not make the right offering as your first program! To please the programming gods you need to create a special program as your first code: "Hello World". 😃
 
-More seriously, Hello World is a great program to start with for any new language or set of tools. This program just outputs the message "Hello World", and makes sure that you have everything setup correctly before you go on and write more complex programs.
+More seriously, Hello World is a great program to start with for any new language or set of tools. This program just outputs the message "Hello World", and makes sure that you have everything setup correctly before you go on and write more complex programs. Watch the following video and use the steps below to create your own Hello World program and check that your setup is good to go.
+
+<!-- <video
+   src="https://cfvod.kaltura.com/pd/p/691292/sp/69129200/serveFlavor/entryId/0_1whw5ogz/v/2/flavorId/0_ffjvk2cg/fileName/Programs_and_procedures_(Swinburne_CodeCasts_-_Introduction_to_Programming_in_Pascal_1.4)_-_HD.mp4/name/a.mp4"
+   controls="controls"
+   width="560"
+   height="315">
+</video> -->
 
 1. Open Atom -- you will use this to enter the program's code.
 2. Type in the following code. Make sure the text is the same, but do not worry if the colors are different.
@@ -140,17 +139,46 @@ More seriously, Hello World is a great program to start with for any new languag
       println("Hello World!");
     }
     ```
-3. Save your program as **HelloWorld.cpp** in your Documents folder somewhere.
-4. Switch to the terminal and compile and run your program.
+3. Save your program as **HelloWorld.cpp** in your Documents folder, or somewhere else on your computer.
+4. Switch to the terminal.
+5. Tell the terminal that you want to move into the folder where you save the code.
+
+    Think of the terminal as currently being located within a folder on your computer. To get access to files you want to be in the folder where the files are located. So you need to **change** into that folder. To do this you use the **cd** command. This stands for **change directory** and is used to move the location of the Terminal to that folder.
+
+    <note>*Directory* is the technical name for a folder.</note>
+
+    For example: if I saved *HelloWorld.cpp* to a folder named *code* in my documents, I would move into that folder using the following commands. This will move into the *Users* folder, then into the *acain* in Users, then into my *Documents* folder and finally into the *code* folder.
+
+    On Mac and Linux I would use:
+    ```bash
+    cd /Users/acain/Documents/code
+    ```
+
+    On Windows I would use:
+    ```bash
+    cd /c/Users/acain/Documents/code
+    ```
+5. List the files in the current directory using the **ls** command. Check that you can see the *HelloWorld.cpp* file in the listing.
+5. Compile and run your program.
+
+    To do this you need to run the *clang++* program and pass it some options so it knows you want to use Splashkit and you want to compile the HelloWorld.cpp file.
 
     ```bash
     clang++ `splashkit -cpp-starter` HelloWorld.cpp -o HelloWorld
     ```
+
+    When this runs successfully it will not print anything out, but it should have created a program that you can see in the folder (and using *ls* in the Terminal).
+
+    <note>
+    Make sure you have the right quotes around the ``` `splashkit -cpp-starter` ```. These are back-ticks and are usually located above the tab key on the left of the keyboard.
+    </note>
 5. Run your program using:
 
     ```bash
     ./HelloWorld
     ```
+
+    When this runs it should echo the text "Hello World".
 
 ![The Atom text editor with the code for a Hello World program.](./Figures/01-program-procedure/01-atom-hello-world.png){width=500px}
 
@@ -160,20 +188,21 @@ More seriously, Hello World is a great program to start with for any new languag
 We are using the **Atom Dark** UI Theme and the **Monokai** Syntax Theme in Atom. You can change your themes in Atom's settings/preferences. The Monokai theme needs to be installed as a custom theme.
 </note>
 
-<!-- <video
-   src="https://cfvod.kaltura.com/pd/p/691292/sp/69129200/serveFlavor/entryId/0_1whw5ogz/v/2/flavorId/0_ffjvk2cg/fileName/Programs_and_procedures_(Swinburne_CodeCasts_-_Introduction_to_Programming_in_Pascal_1.4)_-_HD.mp4/name/a.mp4"
-   controls="controls"
-   width="560"
-   height="315">
-</video> -->
-
-
-
 
 
 ## Understanding Code ##
 
-Computers are powerful, but completely unintelligent, devices.
+Now that you have the tools ready to go, its time to start thinking about code. For that we need to step back and understand a little about programs and compters.
+
+Computers are powerful, but completely unintelligent, devices. Each computer is made up of a number of components, as illustrated in [@Fig:figComputer].
+
+![A computer is made up of a number of components controlled by a central processing unit.](./Figures/01-program-procedure/Computer.png){#fig:figComputer width=500px}
+
+* **Processor**: Each computer has a central processing unit (CPU) that is responsible for performing actions. The CPU responds to instructions that tell it what actions to perform. Each action is very small, but the CPU can perform millions of these actions every second.
+* 
+
+
+![The CPU is responsible for performing actions.](./Figures/01-program-procedure/03-CPU.png){width=200px #fig:figCPU}
 
 
 Conceptual artefacts

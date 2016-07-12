@@ -8,6 +8,7 @@ pandoc \
   --from=markdown \
   --to=html5 \
   -T "Programming Arcana" \
+  Metadata.yaml \
   Text.en/*.md \
   -o bin/ProgrammingArcana.html
 
@@ -18,6 +19,7 @@ pandoc \
   --from=markdown \
   --to=epub3 \
   -T "Programming Arcana" \
+  Metadata.yaml \
   Text.en/*.md \
   -o bin/ProgrammingArcana.epub
 
