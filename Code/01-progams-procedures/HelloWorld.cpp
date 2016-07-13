@@ -1,7 +1,7 @@
 #include "splashkit.h"
-#include "splashhelper.h"
+#include "splashkit_starter.h"
 
-procedure main()
+void main()
 {
-  println("Hello World!");
+    println("Hello World!");
 }

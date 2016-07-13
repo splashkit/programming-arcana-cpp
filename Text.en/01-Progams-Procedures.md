@@ -130,11 +130,11 @@ More seriously, Hello World is a great program to start with for any new languag
 1. Open Atom -- you will use this to enter the program's code.
 2. Type in the following code. Make sure the text is the same, but do not worry if the colors are different.
 
-    ```cpp
+    ```c
     #include "splashkit.h"
-    #include "splashhelper.h"
+    #include "splashkit_starter.h"
 
-    procedure main()
+    void main()
     {
       println("Hello World!");
     }
@@ -204,9 +204,9 @@ Computers are powerful, but completely unintelligent, devices. Each computer is 
 * **Input Devices**: In order to respond to user actions, each computer will have a number of input devices. This includes things like keyboards, mice, track pads, touch screens, game controllers, network ports, etc. Each of these devices is turning user actions into data that the CPU can access.
 * **Output Devices**: The computer also needs devices that can be used to produce outputs. These include things like displays, speakers, network ports, etc. Each of these devices tasks data from the computer and produces an output of some form.
 
-All of these components work togehter to make up what we think of as a computer. The CPU follows instructions to take inputs from a range of devices, store and work with data in memory, and produce outputs saved as files on a storage device or communicated with users via output devices. These components are consistent across the wide range of computing devices, whether that is a traditional computer, a mobile device or tablet, or a computer embedded in something like a home, vehicle, robot, or medical equipment.
+All of these components work together to make up what we think of as a computer. The CPU follows instructions to take inputs from a range of devices, store and work with data in memory, and produce outputs saved as files on a storage device or communicated with users via output devices. These components are consistent across the wide range of computing devices, whether that is a traditional computer, a mobile device or tablet, or a computer embedded in something like a home, vehicle, robot, or medical equipment.
 
-All of these components work together to enable the computer to perform amazing tasks, and yet none of these devices has any inherent intelligence! CPUs follow instructions, memory and storage devices store data, input devices turn user actions into data, and output devices turn data into a medium for the user to receive. So, where does the intelligent behavour of the computer come from?
+All of these components work together to enable the computer to perform amazing tasks, and yet none of these devices has any inherent intelligence! CPUs follow instructions, memory and storage devices store data, input devices turn user actions into data, and output devices turn data into a medium for the user to receive. So, where does the intelligent behaviour of the computer come from?
 
 Software drives computers: providing the intelligence that controls the computing hardware. These software programs contain instructions that tell the computer what to do, and it is these programs that contain the intelligence that make computers truely useful. It is therefore, the developers of these programs that are the real power driving the computer hardware. As you learn to code, you are learning how to craft instructions that will get the un-intelligent computing hardware to achieve your goals.
 
@@ -216,15 +216,185 @@ Each program is a list of instructions that tells the computer what to do. The c
 
 ![The CPU operates on *Machine Code*: binary instructions that tell the CPU the action you want it to perform.](./Figures/01-program-procedure/MachineCode.png){#fig:figMachineCode width=500px}
 
-This is where the compiler comes in. The compiler is a tool that converts text into machine code that the computer can execute. To achieve this, the code you write needs to follow the rules of the programming language. This allows the compiler to understand what you want achieved in order for it to create the machine code that represents the actions you want performed.
+This is where the compiler comes in. The compiler is a tool that converts text into machine code that the computer can execute. To achieve this, the code you write needs to follow the rules of the programming language. This allows the compiler to understand what you want achieved in order for it to create the correct machine code. [@Fig:figCompiler] shows the basic operation of the compiler.
 
 ![The compiler converts your source code into machine code the computer can execute.](./Figures/01-program-procedure/Compiler.png){#fig:figCompiler width=500px}
 
 
+### Source Code Structures ###
 
+The machine code for a typical program may contain millions of very small instructions. In order to work with this we need to organise these instructions in some way so that we can think and work at a higher level. To achieve this, programming languages organise your code around a number of different kinds of artefacts (i.e. things you can create). These artefacts are created and manipulated by the code you write. To understand how to code, means understanding the different kinds of artefacts you can create and the instructions you can use to manipulate these artefacts.
 
-Conceptual artefacts
+Program code generally consists of the following three aspects:
 
+* Code that **declares** (i.e. creates) an artefact.
+* Instructions that command the computer to perform an **action**.
+* Instructions for the compiler, to help it locate other artefacts.
 
-Creating a artefact
-Instructions that use artefacts
+[@Fig:figAnnotatedHelloWorld] shows these three aspects for the Hello World program you created earlier. The instructions for the compiler at the top of the code indicate that you want to **include** artefacts declared in the SplashKit from the *splashkit.h* and *splashkit_starter.h* files. The main part of the code creates (declares) a single **procedure** called **main**, which has within it instructions for the computer to perform when this code is run.
+
+![The Hello World program contains one artefact, and uses others from the Splashkit library.](./Figures/01-program-procedure/AnnotatedHelloWorld.png){#fig:figAnnotatedHelloWorld width=500px}
+
+Now that we have covered this background material, we can start to learn about the artefacts you can create in code and the actions you can perform on these artefacts.
+
+## Level 1 Artefacts and Actions ##
+
+Compiling programs crafted by others is alright, but the true power of coding can only be realised by learning to craft your own programs. You have seen the tools you need to compile programs from source code, so now lets turn our attention to the study program creation.
+
+Level 1 introduces the artefacts used to create programs, and how you can code these using a programming language. Once you have mastered these concepts you will be able to:
+
+* Code programs that perform a scripted sequence of actions.
+* Use the compiler to create a program from your code.
+* Run your program and relate its execution to the code you wrote.
+* Make use of some artefacts from the SplashKit library to output information in creative ways.
+
+This is your first step in your journey to master the arcane knowledge of coding.
+
+### House Drawing Example Code ###
+
+The following code demonstrates all of the concepts covered in the following section. Have a quick read and see if you can work out what the program does.
+
+```c
+/// Program: HouseDrawing
+///
+/// This program opens a window and draws a picture of a house.
+///
+
+#include "splashkit.h"
+#include "splashkit_starter.h"
+
+/// Procedure: draw_house
+///
+/// This procedure draws a house by calling procedures
+/// that fill a rectangle for the walls and a triangle
+/// for the roof.
+void draw_house()
+{
+    fill_rectangle(COLOR_GREY, 300, 300, 200, 200);
+    fill_triangle(COLOR_RED, 250, 300, 400, 150, 550, 300);
+}
+
+/// Procedure: draw_hill
+///
+/// This procedure draws an ellipse that is half off the
+/// bottom of the screen so that it looks like a hill.
+void draw_hill()
+{
+    fill_ellipse(COLOR_BRIGHT_GREEN, 0, 400, 800, 400);
+}
+
+/// Procedure: main
+///
+/// This is where the program starts.
+/// Main will open a window, then draw a hill with
+/// a house on top before delaying for 5 seconds and
+/// then ending.
+void main()
+{
+    open_window("House Drawing", 800, 600);
+    clear_screen(COLOR_WHITE);
+
+    draw_hill();
+    draw_house();
+
+    refresh_screen(60);
+    delay(5000);
+}
+```
+
+### Program (Artefact) ###
+
+In most software projects the top level *artefact* you are aiming to create is a **program**. Within your software a *program* contains a number of other artefacts, and a starting procedure (the **main** procedure). When the program is executed the *main* procedure is called. The computer will continue to run that program until the main procedure ends, which indicates the end of the program.
+
+When you picture a program, you should see it as a collection of things you have created with a starting procedure. It is a wrapper around the software world that you are creating with your code.
+
+![A program can be run by the user and contains artefacts you have created, and those you have used from libraries. When the program is run, its main procedure is called.](./Figures/01-program-procedure/ProgramConcept.png){#fig:figProgramConcept width=500px}
+
+All of the code in the [House Drawing Example Code] is contained with a single program. When this program is run, its *main* procedure is executed and this contains the instructions to open a window and draw a house on a hill.
+
+<note>
+<header>Notes on the Program Artefact</header>
+* A program is an **artefact**, something you can create in your code.
+* [@Fig:figProgramConcept] illustrates the concepts related to the program artefact.
+* A program is a programming artefact used to define the steps to perform when the program is run.
+* You use a compiler to convert the program's source code into an executable file.
+* By declaring a program in your code you are telling the compiler to create a file the user can run (execute).
+* The program must have an **entry point** that indicates where the program's instructions start.
+* Your program can use artefacts that are coded in a [Library](#library-artefact) or number of libraries.
+</note>
+
+### Procedure (Artefact) ###
+
+The computer is unintelligent, so performing anything meaningful requires a large number of instructions. Coding all of these directly in the program would be slow and time consuming. To avoid this programming languages offer the capability to group the instructions needed to perform a task into a **procedure**.
+
+A procedure is a list of instructions that gets the computer to perform a specific task. When a procedure is called it gets control of the computer and instructs it to perform the steps needed. Often these steps require data, so the procedure may need to be passed data when it is called. When the procedure finishes its task, control returns back to the code that called the procedure.
+
+![A procedure is a packaged up list of instructions that gets the computer to perform a task.](./Figures/01-program-procedure/ProcedureConcept.png){#fig:figProcedureConcept width=500px}
+
+The [House Drawing Example Code] creates three procedures: *main*, *draw_hill*, and *draw_house*. Each of these procedures has no parameters, but does contain the instructions needed to perform their separate tasks.
+
+<note>
+<header>Notes on Procedure Artefacts</header>
+* A procedure is an **artefact**, something you can create and use in your code.
+* [@Fig:figProcedureConcept] shows the key concepts related to procedures.
+* A procedure is a programming artefact that packages up the instructions needed to perform a task.
+* Each procedure has a name, technically known as an [Identifier](#identifier_terminology).
+* Each [Library](#library_artefact) will contain reusable procedures to perform common tasks.
+* The standard library will include procedures to write values to the Terminal.
+* The SplashKit library contains procedures that can draw images on the screen, play sounds, and perform many other tasks.
+* Procedures are also known as **subroutines**, **sub-programs**, **methods** or **sub-procedures**.
+</note>
+
+### Procedure Call (Action) ###
+
+Once you have access to a procedure, either one that you created or one that you found in a library, you can use this procedure by **calling** it: this is know as a **procedure call** statement.
+
+A procedure call is a kind of [Statement](#statement_terminology) that instructs the computer to run the code in a [procedure](#procedure_artefact). This statement uses the procedure's name to identify the procedure that must be run, and must pass the required data to the procedure's parameters if the procedure has any.
+
+![A procedure call is a statement used to start the execution of a procedure.](./Figures/01-program-procedure/ProcedureCall.png){#fig:figProcedureCall width=500px}
+
+Each of the statements within the three procedures in [House Drawing Example Code] are procedure calls. Main includes a call to procedures named *open_window*, *clear_screen*, *draw_hill*, *draw_house*, *refresh_screen*, and *delay*. The draw_hill procedure calls *fill_ellipse*, while draw_house calls *fill_rectangle* and *fill_triangle*. Only main, draw_hill and draw_house are declared within the program; the other procedures all come from SplashKit. This means that the code that declares what these procedures do is located within the SplashKit library. See [Picturing the House Drawing Program] for an illustration that shows how these procedures all fit together.
+
+<note>
+<header>Notes on Procedure Calls</header>
+* A procedure call is an **action**, you can call procedures in your code.
+* [@Fig:figProcedureCall] shows the key concepts related to the procedure call statement.
+* A procedure call is an instruction that starts the execution of a procedure.
+* You can call a procedure anywhere you can code a statement.
+* Within the call you use the name ([Identifier](@identifier_terminology)) of the [Procedure](#procedure_artefact) to indicate which one you want run at this point in the program.
+* You place the values you want to pass to the procedure within parenthesis, separated by commas if you need to provide multiple values. These are known as arguments, and their values can be calculated as part of an [Expression](#expression_terminology)
+* When the procedure ends, the program continues with the next [Statement](#statement_terminology).
+</note>
+
+### Library (Artefact) ###
+
+A library is a collection of reusable code artefacts. Each programming language has its own library, and your programs can make use of the artefacts available in this library. SplashKit is also a library; it contains artefacts such as procedures that help make it easy to create more interesting programs when you start learning to code.
+
+<note>
+<header>Notes on Library Artefacts</header>
+* A library is an **artefact**, one that contains other reusable artefacts.
+* Each library will contain [Procedures](#procedure_artefact) you can use to perform different tasks.
+* Each language has a standard library with code to perform many commonly performed tasks.
+* Other libraries extend the capability of the languages further.
+* SplashKit is a library that we created to help you build more interesting programs as you start learning to code.
+</note>
+
+### Terminology ###
+
+Programming has a lot of its own jargon. As you learn to develop software it is also important that you start to learn this *special language* that software developers use to discuss their programs. You will find that this terminology is used in many places. It is used in programming texts, in discussions between developers, in discussion boards, blogs, anywhere that developers are discussing software development. Having a clear understanding of this terminology will help you make the most of these resources.
+
+#### Identifier (Terminology) ####
+
+An identifier is the technical term for the text that *identifies* something for the compiler. This includes the **name** of the programming artefacts you create (such as procedures and libraries) as well as other words that have special meaning for the compiler. You will use identifiers when you name the artefact you create, and to select the artefact you want to use in statements.
+
+#### Statement (Terminology) ####
+
+When you are create a program you define the actions the computer will perform when the program is run. Each of these *actions* is coded as a **statement** within the program's procedures. This style of programming is known as **imperative** programming. Imperative means to give authoritative commands, and that is what we do in our programs. Our programs are lists of **authoritative commands**, statements, that *tell* the computer the actions it is to perform.
+
+#### Expression (Terminology) ####
+
+Some statements need data,  and this data can be calculated or provided as a *literal* value in your code. The term **expression** is used in programming to describe the places within each statement where data must be supplied. At run time each expression is evaluated and becomes a value when the statement is executed.
+
+### Picturing the House Drawing Program ###
+
+![The House Drawing program includes a number of procedures: some from SplashKit and others created in the program itself.](./Figures/01-program-procedure/HouseDrawingStructure.png){#fig:figHouseDrawingStructure width=600px}
