@@ -190,7 +190,7 @@ We are using the **Atom Dark** UI Theme and the **Monokai** Syntax Theme in Atom
 
 
 
-## Understanding Code ##
+## Computers and Programs ##
 
 Now that you have the tools ready to go, its time to start thinking about code. For that we need to step back and understand a little about programs and compters.
 
@@ -204,7 +204,23 @@ Computers are powerful, but completely unintelligent, devices. Each computer is 
 * **Input Devices**: In order to respond to user actions, each computer will have a number of input devices. This includes things like keyboards, mice, track pads, touch screens, game controllers, network ports, etc. Each of these devices is turning user actions into data that the CPU can access.
 * **Output Devices**: The computer also needs devices that can be used to produce outputs. These include things like displays, speakers, network ports, etc. Each of these devices tasks data from the computer and produces an output of some form.
 
-All of these components work together to enable the computer to perform amazing tasks, and yet none of these devices has any inherent intelligence. The CPU follows instructions to take inputs from a range of devices, store and work with data in memory, and produce outputs saved as files on a storage device or communicated with users via an output device.
+All of these components work togehter to make up what we think of as a computer. The CPU follows instructions to take inputs from a range of devices, store and work with data in memory, and produce outputs saved as files on a storage device or communicated with users via output devices. These components are consistent across the wide range of computing devices, whether that is a traditional computer, a mobile device or tablet, or a computer embedded in something like a home, vehicle, robot, or medical equipment.
+
+All of these components work together to enable the computer to perform amazing tasks, and yet none of these devices has any inherent intelligence! CPUs follow instructions, memory and storage devices store data, input devices turn user actions into data, and output devices turn data into a medium for the user to receive. So, where does the intelligent behavour of the computer come from?
+
+Software drives computers: providing the intelligence that controls the computing hardware. These software programs contain instructions that tell the computer what to do, and it is these programs that contain the intelligence that make computers truely useful. It is therefore, the developers of these programs that are the real power driving the computer hardware. As you learn to code, you are learning how to craft instructions that will get the un-intelligent computing hardware to achieve your goals.
+
+### Programs and Compilers ###
+
+Each program is a list of instructions that tells the computer what to do. The challenge here is that the computer's CPU does not operate on english like text, it operates on *machine code*. These codes are represented as binary numbers (consisting of 1's and 0's) with each instruction performing a basic task, see [@Fig:figMachineCode].
+
+![The CPU operates on *Machine Code*: binary instructions that tell the CPU the action you want it to perform.](./Figures/01-program-procedure/MachineCode.png){#fig:figMachineCode width=500px}
+
+This is where the compiler comes in. The compiler is a tool that converts text into machine code that the computer can execute. To achieve this, the code you write needs to follow the rules of the programming language. This allows the compiler to understand what you want achieved in order for it to create the machine code that represents the actions you want performed.
+
+![The compiler converts your source code into machine code the computer can execute.](./Figures/01-program-procedure/Compiler.png){#fig:figCompiler width=500px}
+
+
 
 
 Conceptual artefacts
