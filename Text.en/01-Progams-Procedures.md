@@ -237,7 +237,7 @@ Program code generally consists of the following three aspects:
 
 Now that we have covered this background material, we can start to learn about the artefacts you can create in code and the actions you can perform on these artefacts.
 
-## Level 1 Artefacts and Actions ##
+## Level 1 Artefacts, Actions, and Terminology ##
 
 Compiling programs crafted by others is alright, but the true power of coding can only be realised by learning to craft your own programs. You have seen the tools you need to compile programs from source code, so now lets turn our attention to the study program creation.
 
@@ -310,7 +310,9 @@ When you picture a program, you should see it as a collection of things you have
 
 ![A program can be run by the user and contains artefacts you have created, and those you have used from libraries. When the program is run, its main procedure is called.](./Figures/01-program-procedure/ProgramConcept.png){#fig:figProgramConcept width=500px}
 
-All of the code in the [House Drawing Example Code] is contained with a single program. When this program is run, its *main* procedure is executed and this contains the instructions to open a window and draw a house on a hill.
+All of the code in the [House Drawing Example Code] is contained with a single program. When this program is run its *main* procedure is executed, and this contains the instructions to open a window and draw a house on a hill. You should think of the program as containing a number of procedures, where each procedure performs a given task. [@Fig:figHouseDrawingProgramConcept] illustrates how we picture the House Drawing program. It shows the program containing the three procedures declared in the program's code, along with the called procedures from SplashKit.
+
+![The House Drawing Program contains procedures we created for main, and to draw a hill and draw a house. It also contains procedures from SplashKit.](./Figures/01-program-procedure/HouseDrawingCodePictured.png){#fig:figHouseDrawingProgramConcept width=500px}
 
 <note>
 <header>Notes on the Program Artefact</header>
@@ -327,20 +329,33 @@ All of the code in the [House Drawing Example Code] is contained with a single p
 
 The computer is unintelligent, so performing anything meaningful requires a large number of instructions. Coding all of these directly in the program would be slow and time consuming. To avoid this programming languages offer the capability to group the instructions needed to perform a task into a **procedure**.
 
-A procedure is a list of instructions that gets the computer to perform a specific task. When a procedure is called it gets control of the computer and instructs it to perform the steps needed. Often these steps require data, so the procedure may need to be passed data when it is called. When the procedure finishes its task, control returns back to the code that called the procedure.
+A procedure is a list of instructions that gets the computer to perform a specific task. When a procedure is called it gets control of the computer and runs its instructions in **sequence** following the steps provided in order to achieve its task. Often these steps require data, so the procedure may need to be passed data when it is called. When the procedure finishes its task, control returns back to the code that called the procedure.
 
 ![A procedure is a packaged up list of instructions that gets the computer to perform a task.](./Figures/01-program-procedure/ProcedureConcept.png){#fig:figProcedureConcept width=500px}
 
-The [House Drawing Example Code] creates three procedures: *main*, *draw_hill*, and *draw_house*. Each of these procedures has no parameters, but does contain the instructions needed to perform their separate tasks.
+The [House Drawing Example Code] creates three procedures: *main*, *draw_hill*, and *draw_house*. Each of these procedures contains the instructions needed to perform an individual task. This means that you can call the procedure any time you want that task performed. The code used to create two of these procedures is highlighted in [@Fig:figHouseDrawingProcedures]. You should picture this *entire* block of code as a *single thing*: a procedure.
+
+![The code for the House Drawing Program creates procedures for main, draw hill, and draw house.](./Figures/01-program-procedure/HouseDrawingProcedures.png){#fig:figHouseDrawingProcedures width=500px}
+
+<note>
+<header>Comments</header>
+Comments are a useful way to document your code. These sections of code are ignored by the compiler and can be used to record notes for the developers reading the code.
+</note>
+
+Now the great thing about procedures is that you can usually work out what they do from their name (if they have been designed well). You do not need to worry about the *details* of how a procedure works in order to use one. For example, main in the House Drawing Program calls a procedure named **open window**. We can work out that this is going to open a window without needing to know exactly all of the steps it gets the computer to perform in order to achieve this. This is a very powerful idea, and means that you can focus on just the code for the one procedure you are working on at any one time. So, if you are creating main, you only need to think about how you want themain procedure to work.
+
+When writing your own code, make sure you can clearly see each procedure you are creating. For example,  [@Fig:figPictureAProcedure] shows you all of the code related to the *main* procedure. Keeping this all together helps us to keep this picture in mind.
+
+![With procedures, you can focus on just the procedure you are creating. You can use other procedures without needing to know how they work.](./Figures/01-program-procedure/PictureAProcedure.png){#fig:figPictureAProcedure width=500px}
 
 <note>
 <header>Notes on Procedure Artefacts</header>
 * A procedure is an **artefact**, something you can create and use in your code.
 * [@Fig:figProcedureConcept] shows the key concepts related to procedures.
 * A procedure is a programming artefact that packages up the instructions needed to perform a task.
-* Each procedure has a name, technically known as an [Identifier](#identifier_terminology).
-* Each [Library](#library_artefact) will contain reusable procedures to perform common tasks.
-* The standard library will include procedures to write values to the Terminal.
+* Each procedure has a name, technically known as an [identifier](#identifier_terminology).
+* The instructions within a procedure are run in **sequence**.
+* Each [library](#library_artefact) will contain reusable procedures.
 * The SplashKit library contains procedures that can draw images on the screen, play sounds, and perform many other tasks.
 * Procedures are also known as **subroutines**, **sub-programs**, **methods** or **sub-procedures**.
 </note>
@@ -349,31 +364,35 @@ The [House Drawing Example Code] creates three procedures: *main*, *draw_hill*, 
 
 Once you have access to a procedure, either one that you created or one that you found in a library, you can use this procedure by **calling** it: this is know as a **procedure call** statement.
 
-A procedure call is a kind of [Statement](#statement_terminology) that instructs the computer to run the code in a [procedure](#procedure_artefact). This statement uses the procedure's name to identify the procedure that must be run, and must pass the required data to the procedure's parameters if the procedure has any.
+A procedure call is a kind of [statement](#statement_terminology) that instructs the computer to run the code in a [procedure](#procedure_artefact). The procedure call statement uses the procedure's name to identify which procedure to run, and must pass the required data to the procedure's parameters.
 
 ![A procedure call is a statement used to start the execution of a procedure.](./Figures/01-program-procedure/ProcedureCall.png){#fig:figProcedureCall width=500px}
 
-Each of the statements within the three procedures in [House Drawing Example Code] are procedure calls. Main includes a call to procedures named *open_window*, *clear_screen*, *draw_hill*, *draw_house*, *refresh_screen*, and *delay*. The draw_hill procedure calls *fill_ellipse*, while draw_house calls *fill_rectangle* and *fill_triangle*. Only main, draw_hill and draw_house are declared within the program; the other procedures all come from SplashKit. This means that the code that declares what these procedures do is located within the SplashKit library. See [Picturing the House Drawing Program] for an illustration that shows how these procedures all fit together.
+Each of the statements within the three procedures in [House Drawing Example Code] are procedure calls. Main includes a call to procedures named *open_window*, *clear_screen*, *draw_hill*, *draw_house*, *refresh_screen*, and *delay*. The draw_hill procedure calls *fill_ellipse*, while draw_house calls *fill_rectangle* and *fill_triangle*. Only main, draw_hill and draw_house are declared within the program; the other procedures all come from SplashKit. This means that the code that declares these procedures is located within the SplashKit library.
+
+[@Fig:figHouseDrawingStructure] shows a chart that communicates the different procedure calls within the House Drawing Program. The boxes represent the procedures, and the arrows represent the procedure calls. You can see that, for example, the draw_house procedure calls the fill_rectangle procedure as there is an arrow from the box representing the draw_house procedure to the box representing the fill_rectangle procedure.
+
+![The House Drawing program includes a number of procedures: some from SplashKit and others created in the program itself.](./Figures/01-program-procedure/HouseDrawingStructure.png){#fig:figHouseDrawingStructure width=600px}
 
 <note>
 <header>Notes on Procedure Calls</header>
-* A procedure call is an **action**, you can call procedures in your code.
+* A procedure call is an **action** you can get the computer to perform. You can call procedures in the instructions in your code.
 * [@Fig:figProcedureCall] shows the key concepts related to the procedure call statement.
 * A procedure call is an instruction that starts the execution of a procedure.
 * You can call a procedure anywhere you can code a statement.
-* Within the call you use the name ([Identifier](@identifier_terminology)) of the [Procedure](#procedure_artefact) to indicate which one you want run at this point in the program.
-* You place the values you want to pass to the procedure within parenthesis, separated by commas if you need to provide multiple values. These are known as arguments, and their values can be calculated as part of an [Expression](#expression_terminology)
-* When the procedure ends, the program continues with the next [Statement](#statement_terminology).
+* Within the call you use the name (the [identifier](@identifier_terminology)) of the [procedure](#procedure_artefact) to indicate which one you want run at this point in the program.
+* You place the values you want to pass to the procedure within parenthesis, separated by commas if you need to provide multiple values. These are known as arguments. The value of each argument is calculate as part of an [expression](#expression_terminology) and passed to the matching parameter in the procedure.
+* When the procedure ends, the program continues with the next [statement](#statement_terminology) in the calling procedure.
 </note>
 
 ### Library (Artefact) ###
 
-A library is a collection of reusable code artefacts. Each programming language has its own library, and your programs can make use of the artefacts available in this library. SplashKit is also a library; it contains artefacts such as procedures that help make it easy to create more interesting programs when you start learning to code.
+A library is a collection of reusable code artefacts. Each programming language has its own standard library, and your programs can make use of the artefacts available in this library. SplashKit is also a library; it contains artefacts such as procedures that help make it easy to create more interesting programs when you start learning to code.
 
 <note>
 <header>Notes on Library Artefacts</header>
 * A library is an **artefact**, one that contains other reusable artefacts.
-* Each library will contain [Procedures](#procedure_artefact) you can use to perform different tasks.
+* Each library will contain [procedures](#procedure_artefact) you can use to perform different tasks.
 * Each language has a standard library with code to perform many commonly performed tasks.
 * Other libraries extend the capability of the languages further.
 * SplashKit is a library that we created to help you build more interesting programs as you start learning to code.
@@ -381,20 +400,65 @@ A library is a collection of reusable code artefacts. Each programming language 
 
 ### Terminology ###
 
-Programming has a lot of its own jargon. As you learn to develop software it is also important that you start to learn this *special language* that software developers use to discuss their programs. You will find that this terminology is used in many places. It is used in programming texts, in discussions between developers, in discussion boards, blogs, anywhere that developers are discussing software development. Having a clear understanding of this terminology will help you make the most of these resources.
+Part of the challenge in learning to program is learning all of the right terminology. As you learn to develop software it is also important that you start to learn this *special language* that software developers use to discuss their programs. You will find that this terminology is used in many places. It is used in programming texts, error messages from the compiler, in discussions between developers, in discussion boards, blogs, anywhere that developers are discussing software development. Having a clear understanding of this terminology will help you make the most of these resources.
 
 #### Identifier (Terminology) ####
 
 An identifier is the technical term for the text that *identifies* something for the compiler. This includes the **name** of the programming artefacts you create (such as procedures and libraries) as well as other words that have special meaning for the compiler. You will use identifiers when you name the artefact you create, and to select the artefact you want to use in statements.
 
+<note>
+<header>Notes on Identifiers</header>
+* Each artefact that exists within code will have a name: its identifier.
+* An artefact's name is used to identify it when you want to use it.
+* The name of a [procedure](#procedure_artefact) is an identifier.
+* Other **keywords** are also identifiers. These are words that have special meaning to the compiler. For example, the keyword *#include* is used to access code in a library, and the keyword *void* is used to identify the creation of a procedure.
+</note>
+
 #### Statement (Terminology) ####
 
 When you are create a program you define the actions the computer will perform when the program is run. Each of these *actions* is coded as a **statement** within the program's procedures. This style of programming is known as **imperative** programming. Imperative means to give authoritative commands, and that is what we do in our programs. Our programs are lists of **authoritative commands**, statements, that *tell* the computer the actions it is to perform.
 
+<note>
+<header>Notes on Statements</header>
+* A statement is a *term* used to describe the instructions in your code.
+* A statement is a *command*, an instruction to perform an action.
+* Each [procedure](#procedure_artefact) has a list of statements that are executed when it is called.
+* There are only a few different kinds of statements.
+* Each statement has a defined set of actions the computer performs to execute the statement.
+* A [procedure call](#procedure_call_action) is a kind of statement that tells the computer to run the code in a [procedure](#procedure_artefact).
+</note>
+
 #### Expression (Terminology) ####
 
-Some statements need data,  and this data can be calculated or provided as a *literal* value in your code. The term **expression** is used in programming to describe the places within each statement where data must be supplied. At run time each expression is evaluated and becomes a value when the statement is executed.
+Some statements need data. This data can be calculated or provided as a *literal* value in your code. The term **expression** is used in programming to describe the places within each statement where data must be supplied. At run time each expression is evaluated and becomes a value when the statement is executed.
 
-### Picturing the House Drawing Program ###
+<note>
+<header>Notes on Expressions</header>
+* All values within a program are calculated as part of an expression.
+* An expression is a *term* given to code that calculates a value.
+* An expression provides a *value* to be used within a [statement](#statement_terminology).
+* The argument values passed to parameters in a [procedure call](#procedure_call_action) are all expressions.
+* The expression's value may be calculated or entered directly into the code.
+* Calculations can use mathematical operators: + for addition, - for subtraction, * for multiplication, / for division, and parenthesis ( ) for grouping.
+* Expressions are evaluated using the BODMAS: expressions are evaluated in the order *B* brackets first, *O* orders (which includes powers and square roots), *DM* for division and multiplication (which are of equal precedence, and are evaluated left-to-right), then *AS* addition and subtraction (of equal precedence, evaluated left-to-right).
+* Values entered directly within an expression are known as **literal** values.
+</note>
 
-![The House Drawing program includes a number of procedures: some from SplashKit and others created in the program itself.](./Figures/01-program-procedure/HouseDrawingStructure.png){#fig:figHouseDrawingStructure width=600px}
+## Language and Grammar ##
+
+Now that you have all of the level 1 concepts, the next step is to see how you can realise these cocepts in programming code. This is where the details of a programming language come in. The concepts apply across many programming languages, but in order to write code you need to know the details of the language you are going to use.
+
+In this book we are going to make use of the **C/C++** programming language. We will combine the low level details of C with some of the more programmer friendly aspects of C++. Toward the end of the book we will then look at how the concepts you have learnt apply across a range of programming languages. Each chapter will present the concepts, and then the related syntax. We recommend you focus on the concepts more than the syntax, but you need to understand both to be effective. However, you are likely to need to learn other languages later on and a good understanding of the underlying concepts will make this process much easier.
+
+### Grammar ###
+
+Programming languages have sets of rules that define *how* you write code so that compilers and related tools can understand what you want to achieve. These rules are know as the language's grammar. To make use of a language grammar, the first thing you need to do is understand what you want to achieve. Once you have a notion of what you want to do, you can plan out your program's structure conceptually and then map this to code using the language's grammar.
+
+In this book the syntax rules are expressed using *syntax diagrams*. An example is shown in \fref{synt:basic-rule}. This diagram shows the syntax related to two rules, \emph{first rule}, and \emph{second rule}, and shows the four main parts of all the syntax diagrams.
+
+\begin{enumerate}
+  \item Text found at the start of a line (not contained in a box) is the name of a rule. There are two rules in Figure \ref{synt:basic-rule}: \emph{first rule}, and \emph{second rule}.
+  \item Arrows show the order in which the parts of the rule are applied. They start at the rule name, and point in the direction you need to follow. Each box pointed to by an arrow represents either another rule to apply, or the text that must written.
+  \item Rectangular boxes (nodes) on a line indicate points where other rules need to be applied. For example, the node  \tikz \node [nonterminal] {second rule}; within the \emph{first rule} indicates that you \textbf{must} apply the \emph{second rule} at this point.
+  \item Boxes with rounded corners represent text that must be entered into the code. For example, the node \tikz \node [terminal] {write in the code}; within the \emph{first rule} indicates that you \textbf{must} write the text `\emph{write in the code}' at this point in your code.
+\end{enumerate}
