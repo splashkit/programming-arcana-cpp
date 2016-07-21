@@ -1,0 +1,5 @@
+procedure decl. = "procedure", identifier, "();", block, ";" ;
+
+block = statement part ;
+
+stmt. part = "begin", { statement }+(";"), "end" ;

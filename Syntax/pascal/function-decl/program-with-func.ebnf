@@ -1,0 +1,15 @@
+program = "program", identifier, ";", [uses clause], block, "." ;
+
+uses clause = "uses", { unit identifier }+(","), ";" ;
+
+block = declaration part, statement part ;
+
+decl. part = { constant declarations | function declaration | procedure declaration | variable declarations  }* ;
+
+constant declarations = "const", { identifier, "=", expression, ";" }+ ;
+
+variable decls. = "var", { variable declaration }+ ;
+
+variable decl. = {identifier}+(","), ":", type name, [ "=", expression ], ";";
+
+stmt. part = "begin", { statement }+(";"), "end" ;
