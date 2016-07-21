@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd Tools/syntax-parser
-pyton eebnf_exporter.py
+python eebnf_exporter.py

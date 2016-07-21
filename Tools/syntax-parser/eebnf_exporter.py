@@ -80,23 +80,27 @@ class EEBNFExporter():
         for root, dirs, files in os.walk(code_root):
             for file in [f for f in files if f.endswith(".ebnf")]:
                 full_path = os.path.join(root, file)
-                logger.info('  - Exporting %s' % full_path )
-                output = converter.convert_file(full_path)
+                img_path = full_path.replace(code_root, output_root).replace('ebnf', 'png')
 
                 out_dir = root.replace(code_root, output_root)
-                self._mkdir_p(out_dir)
 
-                out_path = full_path.replace(code_root, output_root).replace('ebnf', 'tex')
-                logger.info('  - Exporting %s' % out_path )
-                out_file = open(out_path, 'w')
-                out_file.write(tikz_picture.file_header_tex + "\n")
-                out_file.write(output)
-                out_file.write(tikz_picture.file_footer_tex + "\n")
-                out_file.close()
+                if os.path.isfile(img_path) and os.stat(full_path).st_mtime > os.stat(img_path).st_mtime:
+                    logger.info('  - Exporting %s' % full_path )
+                    output = converter.convert_file(full_path)
 
-                logger.info('  - Compiling %s' % out_path )
-                run_bash('./build-file.sh', [out_dir, file.replace('ebnf', 'tex')])
 
+                    self._mkdir_p(out_dir)
+
+                    out_path = full_path.replace(code_root, output_root).replace('ebnf', 'tex')
+                    logger.info('  - Exporting %s' % out_path )
+                    out_file = open(out_path, 'w')
+                    out_file.write(tikz_picture.file_header_tex + "\n")
+                    out_file.write(output)
+                    out_file.write(tikz_picture.file_footer_tex + "\n")
+                    out_file.close()
+
+                    logger.info('  - Compiling %s' % out_path )
+                    run_bash('./build-file.sh', [out_dir, file.replace('ebnf', 'tex')])
 
 #----------------------------------------------------------------------------
 

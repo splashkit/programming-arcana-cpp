@@ -1,5 +1,7 @@
 #!/bin/sh
 
+./create_syntax.sh
+
 pandoc \
   --self-contained \
   --filter pandoc-crossref \
