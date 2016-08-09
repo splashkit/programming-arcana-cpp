@@ -14,7 +14,7 @@ We are going to get started straight away, but if you want some more details abo
 
 <note>
 <header>Already Setup?</header>
-It is always good to know how to setup your own compter, but if someone else has already setup your computer you can skip the installation instructions and move on to the [next section](#understanding-code).
+It is always good to know how to setup your own computer, but if someone else has already setup your computer you can skip the installation instructions and move on to the [next section](#understanding-code).
 </note>
 
 ## Getting Started ##
@@ -344,7 +344,7 @@ The [House Drawing Example Code] creates three procedures: `main`, `draw_hill`, 
 Comments are a useful way to document your code. These sections of code are ignored by the compiler and can be used to record notes for the developers reading the code.
 </note>
 
-Now the great thing about procedures is that you can usually work out what they do from their name (if they have been designed well). You do not need to worry about the *details* of how a procedure works in order to use one. For example, main in the House Drawing Program calls a procedure named `open window`. We can work out that this is going to open a window without needing to know exactly all of the steps it gets the computer to perform in order to achieve this. This is a very powerful idea, and means that you can focus on just the code for the one procedure you are working on at any one time. So, if you are creating main, you only need to think about how you want themain procedure to work.
+Now the great thing about procedures is that you can usually work out what they do from their name (if they have been designed well). You do not need to worry about the *details* of how a procedure works in order to use one. For example, main in the House Drawing Program calls a procedure named `open window`. We can work out that this is going to open a window without needing to know exactly all of the steps it gets the computer to perform in order to achieve this. This is a very powerful idea, and means that you can focus on just the code for the one procedure you are working on at any one time. So, if you are creating main, you only need to think about how you want the main procedure to work.
 
 When writing your own code, make sure you can clearly see each procedure you are creating. For example,  [@Fig:figPictureAProcedure] shows you all of the code related to the `main` procedure. Keeping this all together helps us to keep this picture in mind.
 
@@ -490,7 +490,7 @@ In this book the syntax rules are expressed using *syntax diagrams*. These diagr
   3. Red rectangular boxes on a line indicate points where other rules need to be applied. For example, the *letter* box within the *identifier* rule indicates that if you take this path you apply the *letter* rule at this point.
   4. Grey boxes with rounded corners represent text that must be entered into the code. For example, the small rounded box *A* within the *letter* rule indicates that if you take this path you type the letter *A* at this point in your code.
 
-These rules are a very efficient way of working out how you write the code to do or create something for a given language once you learn to read and work with them. We will always provide example code to illustrate points, but that code only shows one way of doing something. The syntax rules can be used much more creatively, so if you can make use of them you will be able to do much more with the progamming language.
+These rules are a very efficient way of working out how you write the code to do or create something for a given language once you learn to read and work with them. We will always provide example code to illustrate points, but that code only shows one way of doing something. The syntax rules can be used much more creatively, so if you can make use of them you will be able to do much more with the programming language.
 
 Lets have a go at using the [identifier syntax] to create our own identifier. Imagine you are creating a program and inside this program you want to create a procedure that *draws an image*. As part of creating that procedure you will need to come up with an [identifier](#identifier_terminology) to name it. The name you want to use is *draw image*, as this captures what the procedure does. To work out how to write this in code you need to use the [identifier syntax].
 
@@ -498,7 +498,7 @@ Looking at the syntax diagram you can locate the appropriate rule: the rule to c
 
 Following the line in the *identifier* rule, you are now at a junction where you can choose to end the identifier or add in additional letters, digits, and underscores. Calling the procedure `d` would be valid, but it would be poor form as it doesn't really tell us what the procedure does. So you can follow the arrow in the diagram down and through *letter* again to add an `r`: so far we now have `dr`. Notice that after this letter there is the option to loop back, and if you follow this you can add in additional letters etc. Using this we can add in two more letters to give `draw`.
 
-At this point we have an issue. You can't name the procedure "draw image", as the C/C++ language does not support spaces in identifiers. Spaces and other whitespace characters are used to separate things in the code, so they cannot be within an identifier. At this point we have several options as to how we can add in the second word. Firstly you could add in an underscore ( _ ) to separate out the words. This style is known as **snake case** and is what we will use for naming our procedures as this mirrors the style used in the C/C++ standard library. So, following the grammar we can make the procedure's identifier `draw_iamge`. All of the different style options are shown in the following list.
+At this point we have an issue. You can't name the procedure "draw image", as the C/C++ language does not support spaces in identifiers. Spaces and other whitespace characters are used to separate things in the code, so they cannot be within an identifier. At this point we have several options as to how we can add in the second word. Firstly you could add in an underscore ( _ ) to separate out the words. This style is known as **snake case** and is what we will use for naming our procedures as this mirrors the style used in the C/C++ standard library. So, following the grammar we can make the procedure's identifier `draw_image`. All of the different style options are shown in the following list.
 
 * Using all lowercase with underscores to separate words is known as **snake case** and would result in the identifier being named **draw_image**.
 * Starting with a lowercase character and new words with an upper case character is known as **camel case** and would result in the identifier being named **drawImage**.
@@ -552,7 +552,7 @@ To create a program in the C/C++ programming language you need to create a file 
 ![This is the syntax diagram for creating a program in C/C++.](./bin/syntax-out/cpp/lvl1/program.png){#fig:figProgramSyntax width=600px}
 
 
-The following code shows an example C/C++ [program](#program_artefact). You should be able to match this up with the syntax defined in [@Fig:figProgramSyntax]. Notice the start the syntax indicates we can have some optional **header includes**, this matches up with the first three lines in the code which *include* some libraries. The trangular brackets are used for standard libraries, like the C/C++ standard IO (stdio.h). The quotes are used to include other libraries, like SplashKit. These header files give you access to a artefacts contained in libraries.
+The following code shows an example C/C++ [program](#program_artefact). You should be able to match this up with the syntax defined in [@Fig:figProgramSyntax]. Notice the start the syntax indicates we can have some optional **header includes**, this matches up with the first three lines in the code which *include* some libraries. The triangular brackets are used for standard libraries, like the C/C++ standard IO (stdio.h). The quotes are used to include other libraries, like SplashKit. These header files give you access to a artefacts contained in libraries.
 
 After the header includes, you can declare your own procedures. For this to be a [program](!program_artefact), one of your procedures must be called "main".
 
