@@ -2,4 +2,8 @@
 figPrefix:
   - "figure"
   - "figures"
+
+tblPrefix:
+  - "table"
+  - "tables"
 ---
