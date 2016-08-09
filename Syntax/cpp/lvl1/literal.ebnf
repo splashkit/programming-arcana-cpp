@@ -8,7 +8,7 @@ sign = "+" | "-" ;
 
 whole number = [ sign ] , digits;
 
-real number = [ sign ] , digits ( "f" | "d" | (".", digits) ) ;
+real number = [ sign ] , digits, ".", digits ;
 
 single char. = 'any character except \, " or a new line' | "\n" | '\"' |  "\%" | "\\" ;
 

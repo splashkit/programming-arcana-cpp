@@ -718,6 +718,7 @@ Real numbes are stored as *floating point* values, which refers to the format us
     * Size: 4 bytes/32 bits
     * Range: 1.0e-38 .. 1.0e38
     * Significant digits: 6
+    * Literals must be tagged with an `f`, eg: `3.14f`
 * `double`
     * Size: 8 bytes/64 bits
     * Range: 2.0e-308 .. 2.0e308
@@ -745,3 +746,8 @@ There are two basic categories of text: single characters, and sequences (string
 Programming languages support the ability for programmers to embed *comments* into the source code that are ignored by the compiler. This lets you document how your code works.
 
 ![The different options for adding comments in C/C++ code.](./bin/syntax-out/cpp/lvl1/comment.png){#fig:figComments width=600px}
+
+## Wrap Up ##
+With these concepts it is possible to create small programs that script some actions. With SplashKit that includes creating programs that draw pictures to the screen.
+
+Watch this video on the artefacts for drawing that we have provided in SplashKit.
