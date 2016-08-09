@@ -572,7 +572,7 @@ void main()
 <header>Notes on C Program Syntax</header>
 * When the program runs, it starts at the first [statement](#statement_terminology) within the *main* function.
 * With the *header include* syntax you use triangular brackets (`<...>`) to include the standard C/C++ libraries, and quotes (`"..."`) to include other external libraries (like splashkit).
-* At this stage you need to using the splashkit_starter to make this work in C/C++, we will explore this in the next chapter.
+* At this stage you need to using `splashkit_starter` to make this work in C/C++, we will explore this in the next chapter.
 </note>
 
 ### Procedure Declaration Syntax: Level 1 ###
@@ -740,3 +740,8 @@ There are two basic categories of text: single characters, and sequences (string
 | Real Numbers  | ` ( ) + - / *`       |                                                       |
 | Text          | ` ( ) `              | You cannot perform mathematical operations on text.   |
 : C/C++ Permitted Operators by Type {#tbl:tblCPermittedOperators}
+
+### Comments in C/C++ ###
+Programming languages support the ability for programmers to embed *comments* into the source code that are ignored by the compiler. This lets you document how your code works.
+
+![The different options for adding comments in C/C++ code.](./bin/syntax-out/cpp/lvl1/comment.png){#fig:figComments width=600px}
