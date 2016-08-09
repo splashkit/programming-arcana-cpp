@@ -1,3 +1,0 @@
-param list = parameter, [",", param list];
-
-param list = {parameter}+(",");
