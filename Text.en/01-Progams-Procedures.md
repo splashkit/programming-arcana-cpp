@@ -308,11 +308,7 @@ void main()
 
 In most software projects the top level *artefact* you are aiming to create is a **program**. Within your software a *program* contains a number of other artefacts, and a starting procedure (the `main` procedure). When the program is executed the `main` procedure is called. The computer will continue to run that program until the main procedure ends, which indicates the end of the program.
 
-When you picture a program, you should see it as a collection of things you have created with a starting procedure. It is a wrapper around the software world that you are creating with your code.
-
-![A program can be run by the user and contains artefacts you have created, and those you have used from libraries. When the program is run, its main procedure is called.](./Figures/01-program-procedure/ProgramConcept.png){#fig:figProgramConcept width=500px}
-
-All of the code in the [House Drawing Example Code] is contained with a single program. When this program is run its `main` procedure is executed, and this contains the instructions to open a window and draw a house on a hill. You should think of the program as containing a number of procedures, where each procedure performs a given task. [@Fig:figHouseDrawingProgramConcept] illustrates how we picture the House Drawing program. It shows the program containing the three procedures declared in the program's code, along with the called procedures from SplashKit.
+When you picture a program, you should see it as a collection of things you have created with a starting procedure. It is a wrapper around the software world that you are creating with your code. All of the code in the [House Drawing Example Code] is contained with a single program. When this program is run its `main` procedure is executed, and this contains the instructions to open a window and draw a house on a hill. You should think of the program as containing a number of procedures, where each procedure performs a given task. [@Fig:figHouseDrawingProgramConcept] illustrates how we picture the House Drawing program. It shows the program containing the three procedures declared in the program's code, along with the called procedures from SplashKit.
 
 ![The House Drawing Program contains procedures we created for main, and to draw a hill and draw a house. It also contains procedures from SplashKit.](./Figures/01-program-procedure/HouseDrawingCodePictured.png){#fig:figHouseDrawingProgramConcept width=500px}
 
@@ -461,13 +457,18 @@ When you are create a program you define the actions the computer will perform w
 
 Some statements need data. This data can be calculated or provided as a *literal* value in your code. The term **expression** is used in programming to describe the places within each statement where data must be supplied. At run time each expression is evaluated and becomes a value when the statement is executed.
 
+All of the expressions in the [House Drawing Example Code] are *literal* values: meaning they are values entered directly in the code. However, you could put calculations for any of these expressions. For example, we could call the procedure to open the window using the following code. This code also has 3 expressions, one for each of the procedure's parameters: `caption`, `width`, and `height`.
+
+```c
+open_window("House Drawing", 400 * 2, 500 + 50 * 2);
+```
+
 <note>
 <header>Notes on Expressions</header>
+* An expression is a *term* given to places in the code where you can calculate a value.
 * All values within a program are calculated as part of an expression.
-* An expression is a *term* given to code that calculates a value.
-* An expression provides a *value* to be used within a [statement](#statement_terminology).
+* An expression provides a *value* that is used within a [statement](#statement_terminology).
 * The argument values passed to parameters in a [procedure call](#procedure_call_action) are all expressions.
-* The expression's value may be calculated or entered directly into the code.
 * Calculations can use mathematical operators: + for addition, - for subtraction, * for multiplication, / for division, and parenthesis ( ) for grouping.
 * Expressions are evaluated using the BODMAS: expressions are evaluated in the order *B* brackets first, *O* orders (which includes powers and square roots), *DM* for division and multiplication (which are of equal precedence, and are evaluated left-to-right), then *AS* addition and subtraction (of equal precedence, evaluated left-to-right).
 * Values entered directly within an expression are known as **literal** values.
@@ -667,7 +668,7 @@ fill_rectangle(COLOR_RED, 10, 30, 200, 300);
 
 ### Expression Syntax ###
 
-An [expression](#expression_terminology) in C/C++ is a mathematical calculation or a literal value. Each expression results in a value, of a certain [type](#type_artefact), being calculated when the expression is used. [@Tbl:tblExpressionOperators] lists the operators that you can use in your expressions, in order of precedence. The operators you can use depend on the kind of data that you are using within the expression.
+An [expression](#expression_terminology) in C/C++ is calculation that results in a value of a certain [type](#type_artefact). [@Tbl:tblExpressionOperators] lists the operators that you can use in your expressions, in order of precedence. The operators you can use depend on the kind of data that you are using within the expression.
 
 | Operators      | Description    | Example        | Value | Type |
 | :------------- | :------------- | :------------- | :------------- | :------------- |
@@ -748,6 +749,16 @@ Programming languages support the ability for programmers to embed *comments* in
 ![The different options for adding comments in C/C++ code.](./bin/syntax-out/cpp/lvl1/comment.png){#fig:figComments width=600px}
 
 ## Wrap Up ##
-With these concepts it is possible to create small programs that script some actions. With SplashKit that includes creating programs that draw pictures to the screen.
+Now that we have covered all of these concepts, lets see how to put them together to make a small program to play out a scene using images and sound effects: much like a simple comic. Use the following steps to help you approach the problem:
+
+1. Plan out your comic
+
+This chapter has outlined many new concepts that will set the foundation for developing a good understanding of programming. Using these concepts it is possible to create small programs that script some actions. For example, with SplashKit you can create programs that draw pictures to the screen and play sound effects.
+
+Watch the following videos that will show you some of the procedures you can call in
+* Drawing shapes to the screen
+* Loading and drawing images
+* Loading and playing sound effects
+
 
 Watch this video on the artefacts for drawing that we have provided in SplashKit.
