@@ -1,0 +1,9 @@
+program = {header include}*, declarations, main procedure ;
+
+header include = "#include", "<" | '"', library name, ">" | '"' ;
+
+declarations = { procedure declaration }* ;
+
+main procedure = procedure declaration ;
+
+library name = filename ;

@@ -1,0 +1,7 @@
+identifier = (letter | underscore ), {letter | digit | underscore }* ;
+
+letter = "A" | "..." | "Z" | "a" | "..." | "z" ;
+
+digit = "0" | "..." | "9" ;
+
+underscore = "_" ;
