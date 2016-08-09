@@ -84,7 +84,7 @@ class EEBNFExporter():
 
                 out_dir = root.replace(code_root, output_root)
 
-                if os.path.isfile(img_path) and os.stat(full_path).st_mtime > os.stat(img_path).st_mtime:
+                if (not os.path.isfile(img_path)) or os.stat(full_path).st_mtime > os.stat(img_path).st_mtime:
                     logger.info('  - Exporting %s' % full_path )
                     output = converter.convert_file(full_path)
 
