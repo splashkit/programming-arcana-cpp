@@ -310,7 +310,7 @@ In most software projects the top level *artefact* you are aiming to create is a
 
 When you picture a program, you should see it as a collection of things you have created with a starting procedure. It is a wrapper around the software world that you are creating with your code. All of the code in the [House Drawing Example Code] is contained with a single program. When this program is run its `main` procedure is executed, and this contains the instructions to open a window and draw a house on a hill. You should think of the program as containing a number of procedures, where each procedure performs a given task. [@Fig:figHouseDrawingProgramConcept] illustrates how we picture the House Drawing program. It shows the program containing the three procedures declared in the program's code, along with the called procedures from SplashKit.
 
-![The House Drawing Program contains procedures we created for main, and to draw a hill and draw a house. It also contains procedures from SplashKit.](./Figures/01-program-procedure/HouseDrawingCodePictured.png){#fig:figHouseDrawingProgramConcept width=500px}
+![The House Drawing Program contains procedures we created for main, and to draw a hill and draw a house. It also contains procedures from SplashKit.](./Figures/01-program-procedure/HouseDrawingCodePictured.png){#fig:figHouseDrawingProgramConcept width=600px}
 
 <note>
 <header>Notes on the Program Artefact</header>
@@ -344,7 +344,7 @@ Now the great thing about procedures is that you can usually work out what they 
 
 When writing your own code, make sure you can clearly see each procedure you are creating. For example,  [@Fig:figPictureAProcedure] shows you all of the code related to the `main` procedure. Keeping this all together helps us to keep this picture in mind.
 
-![With procedures, you can focus on just the procedure you are creating. You can use other procedures without needing to know how they work.](./Figures/01-program-procedure/PictureAProcedure.png){#fig:figPictureAProcedure width=500px}
+![With procedures, you can focus on just the procedure you are creating. You can use other procedures without needing to know how they work.](./Figures/01-program-procedure/PictureAProcedure.png){#fig:figPictureAProcedure width=600px}
 
 <note>
 <header>Notes on Procedure Artefacts</header>
@@ -370,7 +370,7 @@ Each of the statements within the three procedures in [House Drawing Example Cod
 
 [@Fig:figHouseDrawingStructure] shows a chart that communicates the different procedure calls within the House Drawing Program. The boxes represent the procedures, and the arrows represent the procedure calls. You can see that, for example, the `draw_house` procedure calls the `fill_rectangle` procedure as there is an arrow from the box representing the `draw_house` procedure to the box representing the `fill_rectangle` procedure.
 
-![The House Drawing program includes a number of procedures: some from SplashKit and others created in the program itself.](./Figures/01-program-procedure/HouseDrawingStructure.png){#fig:figHouseDrawingStructure width=600px}
+![The House Drawing program includes a number of procedures: some from SplashKit and others created in the program itself.](./Figures/01-program-procedure/HouseDrawingStructure.png){#fig:figHouseDrawingStructure width=700px}
 
 <note>
 <header>Notes on Procedure Calls</header>
@@ -749,16 +749,64 @@ Programming languages support the ability for programmers to embed *comments* in
 ![The different options for adding comments in C/C++ code.](./bin/syntax-out/cpp/lvl1/comment.png){#fig:figComments width=600px}
 
 ## Wrap Up ##
-Now that we have covered all of these concepts, lets see how to put them together to make a small program to play out a scene using images and sound effects: much like a simple comic. Use the following steps to help you approach the problem:
+Now that we have covered all of these concepts, lets see how to put them together to make a small program to play out a scene using shapes, images, and sound effects: much like a simple comic. Use the following steps to help you approach the problem:
 
-1. Plan out your comic
+1. Look at the following videos and articles to see the procedures you can use in SplashKit.
+1. Plan out your comic. What is the sequence of things you want to create a program to show?
+1. Plan to create a procedure for each frame of the comic. To do this:
+    * Think of a name for your procedure - the name should describe what the procedure does. So something like `Show Intro Title`, `Show Squirtle`.
+    * Locate images and sound effects you want to play, or think about the coordinates you would use for the shapes you are going to draw.
+    * Work out the **sequence** of procedure calls you will need to implement this. Each call can be used to draw an image, play a sound effect, or delay.
+    * Jot down your ideas, to keep track of what you want to create.
+    * Once you have a few ideas you can start turning this into code.
+1. Use the syntax diagrams and example code to guide the process of turning your ideas into code.
+    * Start by writing the code for the program - save this into a file called **my_comic.cpp**.
+    * Begin with the `main` procedure, have it Open a Window, and then start calling your procedures to show your comic scenes.
+    * Once you have a little code, switch to the terminal and try compiling and running your program.
+    * Build up your code iteratively, write a little code then compile and run, then write some more.
 
-This chapter has outlined many new concepts that will set the foundation for developing a good understanding of programming. Using these concepts it is possible to create small programs that script some actions. For example, with SplashKit you can create programs that draw pictures to the screen and play sound effects.
-
-Watch the following videos that will show you some of the procedures you can call in
-* Drawing shapes to the screen
+Watch the following videos that will show you some of the procedures you can call in SplashKit to create this program.
+* Drawing fundamentals
 * Loading and drawing images
 * Loading and playing sound effects
+* Drawing shapes to the screen
+
+Here is some quick start code if you are not sure where to start with this.
+
+```c
+#include <splashkit.h>
+#include <splashkit_starter.h>
+
+// Procedure: Load Resources
+// We need to load images, and sound effects. This procedure will take care
+// of that for us, loading these so we can use them later.
+void load_resources()
+{
+    download_bitmap("splashkit", "https://raw.githubusercontent.com/splashkit/splashkit/develop/coresdk/src/test/Resources/images/Lines.png");
+    download_sound_effect("splash", "https://github.com/splashkit/splashkit/raw/develop/coresdk/src/test/Resources/sounds/test.ogg");
+}
+
+// Procedure: Play a SplashKit intro
+void play_splashkit_intro()
+{
+    clear_screen(COLOR_WHITE);
+    draw_bitmap("splashkit", 100, 100);
+    play_sound_effect("splash");
+    refresh_screen(60);
+    delay(2000);
+}
+
+// Procedure: Main coordinates the drawing of the comic.
+void main()
+{
+    open_window("My Comic", 340, 600);
+    play_splashkit_intro();
+}
+```
+
+Compile and run this using ```clang++ `splashkit -cpp-starter` my_comic.cpp -o MyComic```
+
+This chapter has outlined many new concepts that will set the foundation for developing a good understanding of programming. Using these concepts it is possible to create small programs that script some actions. For example, with SplashKit you can create programs that draw pictures to the screen and play sound effects.
 
 
 Watch this video on the artefacts for drawing that we have provided in SplashKit.
