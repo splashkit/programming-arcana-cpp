@@ -807,6 +807,3 @@ void main()
 Compile and run this using ```clang++ `splashkit -cpp-starter` my_comic.cpp -o MyComic```
 
 This chapter has outlined many new concepts that will set the foundation for developing a good understanding of programming. Using these concepts it is possible to create small programs that script some actions. For example, with SplashKit you can create programs that draw pictures to the screen and play sound effects.
-
-
-Watch this video on the artefacts for drawing that we have provided in SplashKit.
